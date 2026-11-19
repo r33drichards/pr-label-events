@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node src/main.js",
     "test": "node --test",
-    "check": "node --check src/service.js && node --check src/http.js && node --check src/main.js"
+    "check": "node --check src/service.js && node --check src/http.js && node --check src/main.js && node --check scripts/runtime-smoke.js && node --check scripts/read-event.js && node --check scripts/prepare-wasmer.js"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "1.32.2",

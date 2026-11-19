@@ -4,3 +4,5 @@ node_modules/
 *.log
 data/
 coverage/
+.wasmer-bundle/
+*.webc

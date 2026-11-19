@@ -1,0 +1,13 @@
+[dependencies]
+"wasmer/edgejs-quickjs" = "=0.2.5"
+
+[fs]
+"/app" = ".wasmer-bundle"
+
+[[command]]
+name = "serve"
+module = "wasmer/edgejs-quickjs:edge"
+runner = "wasi"
+
+[command.annotations.wasi]
+main-args = ["/app/src/main.js"]

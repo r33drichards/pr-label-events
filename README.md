@@ -52,7 +52,7 @@ Before enabling `WAKE_MODE=slack`, an operator must verify the dedicated channel
 
 ## Wasmer deployment gates
 
-Wasmer is the intended host; no deployment manifest claims unverified runtime compatibility. Wasmer CLI is not installed in the available local environment and no zero-cost isolated PostgreSQL resource has been verified. Do not reuse another application's database, secrets, or app. Do not provision paid resources or grant credentials implicitly.
+Wasmer is the intended host. Local WASIX/QuickJS compatibility and a production-only package are now tested; see [runtime evidence and connection requirements](docs/wasmer-runtime.md). Hosted deployment and a zero-cost isolated PostgreSQL resource remain unverified. Do not reuse another application's database, secrets, or app. Do not provision paid resources or grant credentials implicitly.
 
 1. Verify an existing free/zero-cost Wasmer account/runtime supporting this Node.js application and a new isolated PostgreSQL database/role, plus reliable worker scheduling if wake is enabled. Validate runtime compatibility in staging. Wasmer's [volume documentation](https://docs.wasmer.io/edge/learn/volumes/) explicitly warns that shared volumes are unsuitable for database single-writer semantics; do not substitute a SQLite file on a volume.
 2. Configure fresh secrets through the platform secret manager and deploy only this new app. Verify live HTTPS `/health`, authenticated MCP roles, signed synthetic add/remove/duplicate tests, and persistence across restart against that new deployment. Synthetic tests must not send Slack messages.
